@@ -3,7 +3,7 @@
 UQuiz is a web application for many users including teachers and students! Log in, create a quiz, join others and share results!
 
 ## Getting Started
-Click to peek at the [project's planning](https://trello.com/b/3TvLAkJE/project-3-quiz-app) and [backend repo](https://git.generalassemb.ly/eleoes/Project-Three-frontend-.git)! 
+Click to peek at the [project's planning](https://trello.com/b/3TvLAkJE/project-3-quiz-app) and [backend repo](https://git.generalassemb.ly/eleoes/Project-Three-backend-.git)! 
 
 Most importantly you can enjoy the app by clicking this link: [UQUIZ](#)
 
