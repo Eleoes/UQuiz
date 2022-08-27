@@ -1,0 +1,112 @@
+:root {
+  --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.light {
+  --page-bg-color: #fff;
+
+  --nav-text-color: #fff;
+  --nav-bg-color: #121212;
+  --nav-active-text-color: lightgreen;
+
+  --home-text-color: #232323;
+
+  --add-questions-text-color: #232323;
+  --add-questions-text-hover-color: #fff;
+  --add-questions-text-color-lite: #434343;
+  --add-questions-border-color: #121212;
+  --add-questions-button-bg-color: #00000010;
+  --add-questions-button-bg-hover-color: #323232;
+  --add-questions-input-bg-color: aliceblue;
+
+  --quiz-page-text-color: #232323;
+  --quiz-page-text-hover-color: #fff;
+  --quiz-page-border-color: #232323;
+  --quiz-page-questions-bg-color: #fff;
+  --quiz-page-options-bg-color: #d1d3d1;
+  --quiz-page-options-bg-hover-color: #9e9e9e;
+  --quiz-page-options-bg-active-color: #232323;
+  --quiz-page-button-bg-color: #fff;
+  --quiz-page-button-bg-hover-color: #323232;
+
+  --quiz-result-text-color: #232323;
+  --quiz-result-text-hover-color: #fff;
+  --quiz-result-border-color: #232323;
+  --quiz-result-button-bg-color: #fff;
+  --quiz-result-button-bg-hover-color: #232323;
+
+  --settings-text-color: #232323;
+  --settings-border-color: #232323;
+  --settings-button-bg-red: #f55;
+  --settings-button-bg-green: #1f7;
+  --settings-items-bg-color: #fff;
+
+  --error-text-color: #232323;
+  --error-border-color: #232323;
+  --error-button-bg-color: rgba(0, 0, 0, 0.15);
+}
+
+.dark {
+  --page-bg-color: #232323;
+
+  --nav-text-color: #fff;
+  --nav-bg-color: #121212;
+  --nav-active-text-color: lightgreen;
+
+  --home-text-color: #fff;
+
+  --add-questions-text-color: #fff;
+  --add-questions-text-color-lite: #aaa;
+  --add-questions-border-color: #fff;
+  --add-questions-button-bg-color: #555;
+  --add-questions-button-bg-hover-color: #323232;
+  --add-questions-input-bg-color: #555;
+
+  --quiz-page-text-color: #fff;
+  --quiz-page-text-hover-color: #232323;
+  --quiz-page-border-color: #fff;
+  --quiz-page-questions-bg-color: #444;
+  --quiz-page-options-bg-color: #666;
+  --quiz-page-options-bg-hover-color: #9e9e9e;
+  --quiz-page-options-bg-active-color: #fff;
+  --quiz-page-button-bg-color: #323232;
+  --quiz-page-button-bg-hover-color: #fff;
+
+  --quiz-result-text-color: #fff;
+  --quiz-result-text-hover-color: #232323;
+  --quiz-result-border-color: #fff;
+  --quiz-result-button-bg-color: #555;
+  --quiz-result-button-bg-hover-color: #fff;
+
+  --settings-text-color: #fff;
+  --settings-border-color: #fff;
+  --settings-button-bg-red: #f55;
+  --settings-button-bg-green: #1f7;
+  --settings-items-bg-color: #444;
+
+  --error-text-color: #fff;
+  --error-border-color: #fff;
+  --error-button-bg-color: #444;
+}

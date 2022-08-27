@@ -1,25 +1,71 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes, Outlet } from "react-router-dom";
 
-function App() {
+import "./App.css";
+
+import Header from "./components/Header/Header";
+import Home from "./components/pages/Home/Home";
+import CreateQuiz from "./components/pages/CreateQuiz/CreateQuiz";
+import QuizPage from "./components/pages/QuizPage/QuizPage";
+import QuizResult from "./components/pages/QuizResult/QuizResult";
+import Settings from "./components/pages/Settings/Settings";
+import Error from "./components/pages/Error/Error";
+
+const App = () => {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div className='settings'>
+            <Header />
+
+            <div className="page-container">
+              <Outlet />
+            </div>
+          </div>
+        }
+      >
+        <Route
+          index
+          element={
+            <Home
+            />
+          }
+        />
+
+        <Route
+          path="/add+questions"
+          element={
+            <CreateQuiz
+            />
+          }
+        />
+
+        <Route
+          path="/quiz+page"
+          element={
+              <QuizPage />
+          }
+        />
+
+        <Route
+          path="/quiz+result"
+          element={
+              <QuizResult />
+          }
+        />
+
+        <Route
+          path="/settings"
+          element={<Settings />}
+        />
+
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
