@@ -1,0 +1,22 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 2rem;
+    width: 90%;
+    padding: 100px 10px;
+    color: var(--error-text-color);
+    align-items: center;
+    justify-content: center;
+}
+
+
+.return-home  {
+    padding-top: 2rem;
+    border: 2px solid var(--error-border-color);
+    border-radius: 6px;
+    display: flex;
+    background-color: var(--error-button-bg-color);
+    padding: 6px 0;
+    font-weight: 600;
+}
