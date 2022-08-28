@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
 
 import "./App.css";
@@ -12,7 +12,7 @@ import Settings from "./components/pages/Settings/Settings";
 import Error from "./components/pages/Error/Error";
 
 const App = () => {
-  
+  const [questions, setQuestions] = useState([]);
   return (
     <Routes>
       <Route
@@ -36,9 +36,11 @@ const App = () => {
         />
 
         <Route
-          path="/add+questions"
+          path="/create+quiz"
           element={
             <CreateQuiz
+              questions={questions}
+              setQuestions={setQuestions}
             />
           }
         />
