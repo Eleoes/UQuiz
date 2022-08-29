@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes, Outlet } from "react-router-dom";
 
 import "./App.css";
@@ -13,6 +13,41 @@ import Error from "./components/pages/Error/Error";
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
+  const [quizName, setQuizName] = useState("");
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [quizzes, setQuizzes] = useState(null);
+
+  const API_URL = "http://localhost:4000/api/quizzes"; //matching server 
+
+  const getQuizzes = async () => {
+    try {
+      const response = await fetch(API_URL); 
+      const data = await response.json(); // returns a promise object
+      setQuizzes(data);
+    } catch (error){
+      // TODO: add logic or task
+    }
+  }
+
+  // create quiz
+  const createQuiz = async (formData) => {
+    try {
+      await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-type' : 'Application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      getQuizzes();
+    } catch (error) {
+      //TODO: add logic or task
+    }
+  }
+  useEffect(() => {
+    getQuizzes();
+  }, []);
+
   return (
     <Routes>
       <Route
@@ -41,6 +76,11 @@ const App = () => {
             <CreateQuiz
               questions={questions}
               setQuestions={setQuestions}
+              quizName={quizName}
+              setQuizName={setQuizName}
+              setIsFormSubmitted={setIsFormSubmitted}
+              createQuiz={createQuiz}
+              isFormSubmitted={isFormSubmitted}
             />
           }
         />
@@ -48,7 +88,13 @@ const App = () => {
         <Route
           path="/quiz+page"
           element={
-              <QuizPage />
+            <QuizPage 
+              quizzes={quizzes}
+              quizName={quizName}
+              questions={questions}
+              setIsFormSubmitted={setIsFormSubmitted}
+              setQuestions={setQuestions}
+            />
           }
         />
 
