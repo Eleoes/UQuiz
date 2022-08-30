@@ -30,18 +30,26 @@ const App = () => {
   }
 
   // create quiz
-  const createQuiz = async (formData) => {
+  const createQuiz = async () => {
+    setQuizName("");
     try {
       await fetch(API_URL, {
         method: 'POST',
         headers: {
           'Content-type' : 'Application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: quizName,
+          questions: questions.map(({question, correctAnswer, options}) => ({
+            question,
+            correctAnswer,
+            options}))
+        })
       });
+      setQuestions([])
       getQuizzes();
     } catch (error) {
-      //TODO: add logic or task
+      console.log(error.message)
     }
   }
   useEffect(() => {
