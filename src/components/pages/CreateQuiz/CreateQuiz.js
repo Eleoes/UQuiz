@@ -39,7 +39,7 @@ const CreateQuiz = ({questions, setQuestions, quizName, setQuizName, setIsFormSu
       newForm?.options[1] &&
       newForm?.options[2] &&
       newForm?.correctAnswer > 0 &&
-      newForm?.correctAnswer < 5
+      newForm?.correctAnswer < 4
     ){
       setQuestions( 
         questions.length ? [...questions, newForm ] : [newForm]
@@ -128,7 +128,7 @@ const CreateQuiz = ({questions, setQuestions, quizName, setQuizName, setIsFormSu
         />
 
         { /* QUIZ CORRECT ANSWER */ }
-        <label name='CorrectAnswer' htmlFor='correctAnswer'>Correct Answer is No.:</label>
+        <label name='CorrectAnswer' htmlFor='correctAnswer'>Correct Answer is No. :</label>
         <input 
         type='text'
         value={newForm.correctAnswer}
@@ -145,7 +145,7 @@ const CreateQuiz = ({questions, setQuestions, quizName, setQuizName, setIsFormSu
         {questions.length !== 0 && quizName && (
           <Link
             to="/quiz+page"
-            className="start-quiz"
+            className="submit-quiz"
             onClick={handleSubmit}
           >
             <button>Submit Quiz</button>

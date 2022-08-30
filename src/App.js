@@ -17,6 +17,7 @@ const App = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [quizzes, setQuizzes] = useState(null);
 
+  //////// GET DATA //////////
   const API_URL = "http://localhost:4000/api/quizzes"; //matching server 
 
   const getQuizzes = async () => {
@@ -52,6 +53,7 @@ const App = () => {
       console.log(error.message)
     }
   }
+
   useEffect(() => {
     getQuizzes();
   }, []);

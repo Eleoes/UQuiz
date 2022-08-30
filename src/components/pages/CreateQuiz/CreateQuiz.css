@@ -36,3 +36,116 @@
     display: block;
     width: 100%
 }
+
+.input-container label {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.input-container input {
+    background-color: var(--add-questions-input-bg-color);
+    color: var(--add-questions-text-color);
+    height: 50px;
+    resize: none;
+    border: 2px solid var(--add-questions-border-color);
+    border-radius: 6px;
+    font-size: 1.2rem;
+    padding: 3px;
+    box-shadow: 1px 1px 5px var(--shadow-color);
+}
+
+.input-container input:focus {
+    border: 3px solid var(--add-questions-border-color);
+    outline: none;
+}
+
+.proceed-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.add-question {
+    display: inline-block;
+    width: 49%;
+    padding: 10px 0;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid var(--add-questions-border-color);
+    color: var(--add-questions-text-color);
+    background-color: var(--add-questions-button-bg-color);
+    box-shadow: 2px 2px 10px var(--shadow-color);
+
+    transition: all 0.2s ease;
+}
+
+.submit-quiz {
+    display: inline-block;
+    width: 49%;
+    padding: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid var(--add-questions-border-color);
+    background-color: var(--add-questions-button-bg-color);
+    box-shadow: 2px 2px 10px var(--shadow-color);
+  
+    transition: all 0.2s ease;
+}
+
+.submit-quiz button {
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    color: var(--add-questions-button-text-color);
+    background-color: transparent;
+}
+
+.proceed-buttons .submit-quiz:hover, .add-question:hover {
+    background-color: var(--add-questions-button-bg-hover-color);
+    color: var(--add-questions-text-hover-color);
+
+    transition: all 0.2s ease;
+}
+
+.submit-quiz button:hover {
+    color: var(--add-questions-text-hover-color);
+
+    transition: all 0.2s ease;
+}
+
+@media (min-width: 520px) {
+    .container .title {
+        font-size: 2rem;
+    }
+
+    .questions-info{
+        font-size: 1.7rem;
+    }
+
+    .input-container label, input {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 720px) {
+    .container .title {
+        font-size: 2.4rem;
+    }
+    .questions-info{
+        font-size: 1.8rem;
+    }
+}
+
+@media (hover:none) {
+    .add-question:hover, .submit-quiz:hover, .submit-quiz button:hover {
+        background-color: var(--add-questions-button-bg-color);
+        color: var(--add-questions-button-text-color);
+
+        transform: all 0.2s ease;
+    }
+}
