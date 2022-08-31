@@ -32,7 +32,7 @@
     gap: 3px
 }
 
-.input-container label, input {
+.input-container label, .input-container input {
     display: block;
     width: 100%
 }
