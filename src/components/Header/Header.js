@@ -72,18 +72,6 @@ const Header = () => {
             onClick={() => setMobileMenu(mobileMenu ? false : true)}
           >
             <Link
-              to="/quiz+result"
-              className={`${({ isActive }) => isActive && "active"}`}
-            >
-              Quiz Results
-            </Link>
-          </li>
-
-          <li
-            className="nav-items"
-            onClick={() => setMobileMenu(mobileMenu ? false : true)}
-          >
-            <Link
               to="/settings"
               className={`${({ isActive }) => isActive && "active"}`}
             >

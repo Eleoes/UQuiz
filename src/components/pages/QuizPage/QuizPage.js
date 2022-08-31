@@ -1,17 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import Modal from './Modal';
 
 import "./QuizPage.css";
 
 const QuizPage = (props) => {
   props.questions.forEach((question) => (question.userAnswer = 0));
+
+  const [openModal, setOpenModal] = useState(false);
   
   const loaded = () => {
     return props.quizzes.map((quiz) => (
       <div key={quiz._id} className="quiz-container">
-        <Link to={`/quizzes/${quiz._id}`}>
-          <h1>{quiz.name}</h1>
-        </Link>
+            <h1 className='title' onClick={() => {
+              setOpenModal(true)
+              }}>
+                {quiz.name}
+            </h1>
+          {openModal && <Modal quizData={quiz} closeModal={setOpenModal}/>}
       </div>
     ));
   };
@@ -21,7 +26,7 @@ const QuizPage = (props) => {
   }
   
   return (
-    <main>
+    <main className='container'>
       {props.quizzes ? loaded() : loading()}
     </main>
     

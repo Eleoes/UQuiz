@@ -7,7 +7,6 @@ import Header from "./components/Header/Header";
 import Home from "./components/pages/Home/Home";
 import CreateQuiz from "./components/pages/CreateQuiz/CreateQuiz";
 import QuizPage from "./components/pages/QuizPage/QuizPage";
-import QuizResult from "./components/pages/QuizResult/QuizResult";
 import Settings from "./components/pages/Settings/Settings";
 import Error from "./components/pages/Error/Error";
 
@@ -105,13 +104,6 @@ const App = () => {
               setIsFormSubmitted={setIsFormSubmitted}
               setQuestions={setQuestions}
             />
-          }
-        />
-
-        <Route
-          path="/quiz+result"
-          element={
-              <QuizResult />
           }
         />
 
