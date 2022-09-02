@@ -138,3 +138,22 @@
     cursor: pointer;
 }
 
+@media (min-width: 765px) {
+    .modal-container {
+        max-width: 900px;
+        gap: 60px;
+    }
+
+    .modal-title {
+        font-size: 2rem;
+    }
+
+    .question-container {
+        gap: 30px;
+        justify-content: space-between;
+    }
+
+    .option label {
+        max-width: 300px;
+    }
+}

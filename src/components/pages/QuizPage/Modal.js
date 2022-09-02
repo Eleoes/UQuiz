@@ -1,10 +1,28 @@
 import React from 'react'
-
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./Modal.css";
 
-const Modal = ({ closeModal, quizData }) => {
+const Modal = ({ id, deleteQuiz, closeModal, quizData, score, setScore }) => {
+
+    const [showResults, setShowResults] = useState(false);
+
+    const handleSubmit = () => {
+        let tempScore = 0;
+        quizData.questions.forEach((question) => {
+            tempScore += question.userAnswer === Number(question.correctAnswer) ? 1 : 0;
+        });
+        setScore(tempScore);
+        setShowResults(true);
+    }
+
+    const handleDelete = () => {
+        closeModal(false);
+        deleteQuiz(id);
+    }
+
   return (
-    <div className='modal-bg'>
+    <div className='modal-bg' id={id}>
         <div className='modal-container'>
             <div className='modal-titleCloseBtn'>
                 <button onClick={() => closeModal(false)}>X</button>
@@ -13,7 +31,17 @@ const Modal = ({ closeModal, quizData }) => {
                 <h1>{quizData.name}</h1>
             </div>
             <div className='modal-body'>
-                {quizData.questions.map((item, index) => (
+                {showResults ? <><div className='quiz-result-container'>
+                <h1 className='title'>Score: {score < 10 ? `0${score}` : score}</h1>
+                <div className='proceed-buttons'>
+                    <Link to ='/quiz+page' className='quiz-page'>
+                        <button>Quiz Page</button>
+                    </Link>
+                    <Link to ='/' className='home'>
+                        <button>Home</button>
+                    </Link>
+                </div>
+            </div></> : <>{quizData.questions.map((item, index) => (
                     <div className='question-container' key={index}>
                         <h3 className='question'>
                             {index + 1}. {item.question}
@@ -35,11 +63,13 @@ const Modal = ({ closeModal, quizData }) => {
                             ))}
                         </ul>
                     </div>
-                ))}
+                ))}</>}
+                
             </div>
             <div className='modal-footer'>
                 <button onClick={() => closeModal(false)}>Cancel</button>
-                <button>Submit</button>
+                <button onClick={handleSubmit}>Submit</button>
+                <button onClick={handleDelete}>Delete Quiz</button>
             </div>
         </div>
     </div>

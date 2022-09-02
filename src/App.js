@@ -53,6 +53,18 @@ const App = () => {
     }
   }
 
+  // delete quiz
+  const deleteQuiz = async (id) => {
+    try {
+      await fetch(`${API_URL}/${id}`, {
+        method:'DELETE'
+      });
+      getQuizzes();
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   useEffect(() => {
     getQuizzes();
   }, []);
@@ -99,10 +111,11 @@ const App = () => {
           element={
             <QuizPage 
               quizzes={quizzes}
-              quizName={quizName}
+              deleteQuiz={deleteQuiz}
+              // quizName={quizName}
               questions={questions}
-              setIsFormSubmitted={setIsFormSubmitted}
-              setQuestions={setQuestions}
+              // setIsFormSubmitted={setIsFormSubmitted}
+              // setQuestions={setQuestions}
             />
           }
         />
