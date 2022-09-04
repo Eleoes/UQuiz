@@ -51,8 +51,14 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 20px;
     padding: 5%;
+    gap: 10px;
+}
+
+.modal-body-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .modal-body .question-container {
@@ -136,21 +142,30 @@
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
+    
 }
 
 @media (min-width: 765px) {
     .modal-container {
-        max-width: 900px;
-        gap: 60px;
+        max-width: 1200px;
     }
 
     .modal-title {
         font-size: 2rem;
+        max-height: 15%;
+    }
+    .modal-body {
+        max-height:50%;
+    }
+    
+    .modal-footer {
+        height: 25%;
     }
 
     .question-container {
         gap: 30px;
         justify-content: space-between;
+        font-size: .5rem;
     }
 
     .option label {

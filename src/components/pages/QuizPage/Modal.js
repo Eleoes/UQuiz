@@ -30,47 +30,50 @@ const Modal = ({ id, deleteQuiz, closeModal, quizData, score, setScore }) => {
             <div className='modal-title'>
                 <h1>{quizData.name}</h1>
             </div>
-            <div className='modal-body'>
-                {showResults ? <><div className='quiz-result-container'>
-                <h1 className='title'>Score: {score < 10 ? `0${score}` : score}</h1>
-                <div className='proceed-buttons'>
-                    <Link to ='/quiz+page' className='quiz-page'>
-                        <button>Quiz Page</button>
-                    </Link>
-                    <Link to ='/' className='home'>
-                        <button>Home</button>
-                    </Link>
-                </div>
-            </div></> : <>{quizData.questions.map((item, index) => (
-                    <div className='question-container' key={index}>
-                        <h3 className='question'>
-                            {index + 1}. {item.question}
-                        </h3>
-                    
-                        <ul className='options-container'>
-                            {item.options.map((option, i) => (
-                                <li key={i} className='option'>
-                                    <input
-                                        type='radio'
-                                        name={item.question + index}
-                                        id={option + i + index}
-                                        onClick={() => {
-                                            item.userAnswer = i + 1;
-                                        }}
-                                    />{" "}
-                                    <label htmlFor={option + i + index}>{option}</label>
-                                </li>
-                            ))}
-                        </ul>
+            {showResults ? <><div className='modal-body-column'>
+                    <h1 className='title'>Score: {score < 10 ? `0${score}` : score}</h1>
+                    <div className='modal-footer'>
+                        <Link to ='/quiz+page' className='quiz-page'>
+                            <button onClick ={() => closeModal(false)}>Quiz Page</button>
+                        </Link>
+                        <Link to ='/' className='home'>
+                            <button>Home</button>
+                        </Link>
                     </div>
-                ))}</>}
+                </div>
+                </> : <>
+                <div className='modal-body'>
+                        {quizData.questions.map((item, index) => (
+                            <div className='question-container' key={index}>
+                                <h3 className='question'>
+                                    {index + 1}. {item.question}
+                                </h3>
+                            
+                                <ul className='options-container'>
+                                    {item.options.map((option, i) => (
+                                        <li key={i} className='option'>
+                                            <input
+                                                type='radio'
+                                                name={item.question + index}
+                                                id={option + i + index}
+                                                onClick={() => {
+                                                    item.userAnswer = i + 1;
+                                                }}
+                                            />{" "}
+                                            <label htmlFor={option + i + index}>{option}</label>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
                 
-            </div>
-            <div className='modal-footer'>
-                <button onClick={() => closeModal(false)}>Cancel</button>
-                <button onClick={handleSubmit}>Submit</button>
-                <button onClick={handleDelete}>Delete Quiz</button>
-            </div>
+                 </div>
+                <div className='modal-footer'>
+                    <button onClick={() => closeModal(false)}>Cancel</button>
+                    <button onClick={handleSubmit}>Submit</button>
+                    <button onClick={handleDelete}>Delete Quiz</button>
+                </div>
+            </>}
         </div>
     </div>
   )
