@@ -5,6 +5,9 @@
   align-items: center;
   justify-content: center;
   background-color: var(--page-bg-color);
-
+  background-image: 
+        url("https://blush.design/api/download?shareUri=qFj-xVhhVXGKif42&c=Skin_0%7E09b9c6-0.1%7Eff8282-0.2%7Eff8282&w=800&h=800&fm=png");
+  background-repeat: no-repeat;
+  background-position: bottom right ;
   transition: background-color 1s ease;
 }

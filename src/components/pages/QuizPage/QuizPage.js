@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Modal from './Modal';
-
+import { ProgressBar } from 'react-loader-spinner';
 import "./QuizPage.css";
 
 const QuizPage = (props) => {
@@ -62,7 +62,15 @@ const QuizPage = (props) => {
   };
 
   const loading = () => {
-    return <h1>Loading...</h1>
+    return <ProgressBar
+    height="80"
+    width="80"
+    ariaLabel="progress-bar-loading"
+    wrapperStyle={{}}
+    wrapperClass="progress-bar-wrapper"
+    borderColor = '#F4442E'
+    barColor = '#51E5FF'
+    />
   }
   
   return (

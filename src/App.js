@@ -17,8 +17,9 @@ const App = () => {
   const [quizzes, setQuizzes] = useState(null);
 
   //////// GET DATA //////////
-  const API_URL = "http://localhost:4000/api/quizzes"; //matching server 
-
+  // const API_URL = "http://localhost:4000/api/quizzes"; //matching server 
+  const API_URL = 'https://uquiz-app-api.herokuapp.com/api/quizzes';
+  
   const getQuizzes = async () => {
     try {
       const response = await fetch(API_URL); 
